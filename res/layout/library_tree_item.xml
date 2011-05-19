@@ -48,4 +48,11 @@
 			/>
 		</LinearLayout>
 	</RelativeLayout>
+	<org.geometerplus.android.fbreader.CoverFlow android:id="@+id/coverflow"
+			android:layout_width="match_parent" android:layout_height="match_parent"
+			android:paddingLeft="400dp"
+			android:paddingRight="400dp" 
+			android:text="@string/toggle_home_as_up" />   
+
+	
 </LinearLayout>

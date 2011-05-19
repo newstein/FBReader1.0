@@ -37,6 +37,46 @@ import org.geometerplus.zlibrary.ui.android.R;
 import org.geometerplus.android.util.UIUtil;
 import org.geometerplus.android.fbreader.tree.ZLAndroidTree;
 
+import java.io.FileInputStream;
+
+
+
+import android.app.Activity;
+import android.os.Bundle;
+
+
+import android.app.ActionBar;
+import android.app.ActionBar.Tab;
+import android.app.Activity;
+import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.LinearGradient;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Bitmap.Config;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.Shader.TileMode;
+import android.os.Bundle;
+//import android.preference.PreferenceActivity;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
+import org.geometerplus.android.fbreader.CoverFlow;
+
+
+
 abstract class LibraryBaseActivity extends BaseActivity implements MenuItem.OnMenuItemClickListener {
 	static final String TREE_PATH_KEY = "TreePath";
 	static final String PARAMETER_KEY = "Parameter";
@@ -175,6 +215,10 @@ abstract class LibraryBaseActivity extends BaseActivity implements MenuItem.OnMe
 			return view;
 		}
 	}
+
+
+
+
 
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {

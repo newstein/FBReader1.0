@@ -25,7 +25,7 @@ import android.graphics.Bitmap.Config;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.Shader.TileMode;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
+//import android.preference.PreferenceActivity;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,23 +37,44 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
+import org.geometerplus.android.fbreader.library.LibraryRecentActivity;
 import org.geometerplus.android.fbreader.library.LibraryTopLevelActivity;
 import org.geometerplus.android.fbreader.network.NetworkLibraryActivity;
+import org.geometerplus.android.fbreader.preferences.PreferenceActivity;
+import org.geometerplus.android.fbreader.FBReader;
+
 import org.geometerplus.zlibrary.ui.android.R;
 import android.util.Log;
+import android.os.Handler;
+import android.os.HandlerThread;
+import java.util.ArrayList;
+
+
 
 /**
  * This demo shows how various action bar display option flags can be combined and their effects.
  */
 public class ebookmain extends Activity
-        implements View.OnClickListener, ActionBar.TabListener {
+        implements View.OnClickListener/*, ActionBar.TabListener*/ {
     private View mCustomView;
     private static final String TAG = "ebookmain";
 
     private Button mlocal;
     private Button mnetwork;
     private Button mbookmark;
-    private Button msetting;    
+    private Button msetting;  
+
+    private FBReader mFBReader;
+
+    private Context mContext;
+
+    private static final HandlerThread sWorkerThread = new HandlerThread("ebook-main");
+    static {
+        sWorkerThread.start();
+    }
+    private static final Handler sWorker = new Handler(sWorkerThread.getLooper());
+
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +96,7 @@ public class ebookmain extends Activity
         coverFlow.setSpacing(-15);
         coverFlow.setSelection(5, true);
         
-        
+        mContext=this;
 
 
         findViewById(R.id.toggle_home_as_up).setOnClickListener(this);
@@ -89,7 +110,11 @@ public class ebookmain extends Activity
         //hide button
         setAllButtonInVisible();
         //hide home title 
-        setHomeVisible();
+        //setHomeVisible();
+
+         //initial FBReader 
+        setFBReaderInVisible();
+
 
  /*
         findViewById(R.id.local_library).setOnClickListener(this);
@@ -102,9 +127,9 @@ public class ebookmain extends Activity
         //show  button
         setAllButtonInVisible();
         //hide home title 
-        setHomeVisible();
+        //setHomeVisible();
 
- 
+ /*
         mCustomView = getLayoutInflater().inflate(R.layout.action_bar_display_options_custom, null);
         // Configure several action bar elements that will be toggled by display options.
         final ActionBar bar = getActionBar();
@@ -114,7 +139,7 @@ public class ebookmain extends Activity
         bar.addTab(bar.newTab().setText("Tab 1").setTabListener(this));
         bar.addTab(bar.newTab().setText("Tab 2").setTabListener(this));
         bar.addTab(bar.newTab().setText("Tab 3").setTabListener(this));
-        
+ */       
         
         
     }
@@ -251,10 +276,30 @@ public class ebookmain extends Activity
         
     }           
      private void onClickSettingButton() {
-         Intent intent = new Intent(this, PreferenceActivity.class);
+  //       Intent intent = new Intent(this, PreferenceActivity.class);
+        Intent intent = new Intent(this, LibraryRecentActivity.class);
          this.startActivity(intent);
         
-    }              
+    }  
+
+    private void setFBReaderInVisible() {
+ /*     
+        mFBReader=(FBReader)findViewById(R.id.fbreadermain);
+
+        
+        ((FBReader) mFBReader).setVisibility(View.INVISIBLE);      
+*/
+
+    }    
+    private void setFBReaderVisible() {
+ /*      
+       mFBReader=(FBReader)findViewById(R.id.fbreadermain);
+
+        ((FBReader) mFBReader).setVisibility(View.VISIBLE);         
+   */
+
+    }        
+     
     private void setAllButtonInVisible() {
       
         Button Button_A=(Button)findViewById(R.id.toggle_home_as_up);
@@ -485,6 +530,45 @@ public class ebookmain extends Activity
          } 
 
     }
+    public void RoadRecentBook() {
+        enqueuePackageUpdated(new PackageUpdatedTask(PackageUpdatedTask.OP_LOAD_RECENT_BOOK));
+
+    }
     
+    void enqueuePackageUpdated(PackageUpdatedTask task) {
+        sWorker.post(task);
+    }
+
+    
+    private class PackageUpdatedTask implements Runnable {
+        int mOp;
+
+        public static final int OP_NONE = 0;
+        public static final int OP_LOAD_RECENT_BOOK = 1;
+
+        public static final int OP_UNAVAILABLE = 2; 
+
+        public PackageUpdatedTask(int op) {
+            mOp = op;
+   
+        }
+
+        public void run() {
+            final Context context = mContext;
+
+   
+            switch (mOp) {
+                case OP_LOAD_RECENT_BOOK:
+
+                    break;
+ 
+
+                case OP_UNAVAILABLE:
+
+                    break;
+            }
+
+        }
+    }    
     
 }
