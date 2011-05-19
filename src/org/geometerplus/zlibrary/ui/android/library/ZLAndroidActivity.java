@@ -34,12 +34,48 @@ import org.geometerplus.zlibrary.core.filesystem.ZLFile;
 
 import org.geometerplus.zlibrary.ui.android.R;
 import org.geometerplus.zlibrary.ui.android.application.ZLAndroidApplicationWindow;
+import android.util.Log;
+//sean_0517
+import java.io.FileInputStream;
+import android.app.ActionBar;
+import android.app.ActionBar.Tab;
+import android.app.Activity;
+import android.app.FragmentTransaction;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.LinearGradient;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Bitmap.Config;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.Shader.TileMode;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
+import org.geometerplus.android.fbreader.CoverFlow;
+//sean_0517
+public abstract class ZLAndroidActivity extends Activity  implements View.OnClickListener, ActionBar.TabListener {
+       private static final String TAG = "ZLAndroidActivity";
 
-public abstract class ZLAndroidActivity extends Activity {
+//sean_0517
+    private View mCustomView;
+    
 	protected abstract ZLApplication createApplication(ZLFile file);
 
 	private static final String REQUESTED_ORIENTATION_KEY = "org.geometerplus.zlibrary.ui.android.library.androidActiviy.RequestedOrientation";
 	private static final String ORIENTATION_CHANGE_COUNTER_KEY = "org.geometerplus.zlibrary.ui.android.library.androidActiviy.ChangeCounter";
+
+
 
 	@Override
 	protected void onSaveInstanceState(Bundle state) {
@@ -89,6 +125,7 @@ public abstract class ZLAndroidActivity extends Activity {
 	@Override
 	public void onCreate(Bundle state) {
 		super.onCreate(state);
+            Log.v(TAG, "SEAN_LOG  onCreate " ); 
 		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler(this));
 
 		if (state != null) {
@@ -96,11 +133,19 @@ public abstract class ZLAndroidActivity extends Activity {
 			myChangeCounter = state.getInt(ORIENTATION_CHANGE_COUNTER_KEY);
 		}
 
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+        	//sean_0517  requestWindowFeature(Window.FEATURE_NO_TITLE);
+               requestWindowFeature(Window.FEATURE_ACTION_BAR);
 		if (ZLAndroidApplication.Instance().DisableButtonLightsOption.getValue()) {
 			disableButtonLight();
 		}
 		setContentView(R.layout.main);
+//sean_0517
+Log.v(TAG, "SEAN_LOG  onCreate 2 " ); 
+//        setContentView(R.layout.ebookmain);
+
+Log.v(TAG, "SEAN_LOG  onCreate 3 " ); 
+
+
 		setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
 
 		getLibrary().setActivity(this);
@@ -119,7 +164,7 @@ public abstract class ZLAndroidActivity extends Activity {
 	@Override
 	public void onStart() {
 		super.onStart();
-
+              Log.v(TAG, "SEAN_LOG  onStart " ); 
 		if (ZLAndroidApplication.Instance().AutoOrientationOption.getValue()) {
 			setAutoRotationMode();
 		} else {
@@ -298,4 +343,64 @@ public abstract class ZLAndroidActivity extends Activity {
 			);
 		}
 	};
+
+//sean_0517
+    public void onClick(View v) {
+        final ActionBar bar = getActionBar();
+        int flags = 0;
+        switch (v.getId()) {
+            case R.id.toggle_home_as_up:
+                flags = ActionBar.DISPLAY_HOME_AS_UP;
+                break;
+            case R.id.toggle_show_home:
+                flags = ActionBar.DISPLAY_SHOW_HOME;
+                break;
+            case R.id.toggle_use_logo:
+                flags = ActionBar.DISPLAY_USE_LOGO;
+                break;
+            case R.id.toggle_show_title:
+                flags = ActionBar.DISPLAY_SHOW_TITLE;
+                break;
+            case R.id.toggle_show_custom:
+                flags = ActionBar.DISPLAY_SHOW_CUSTOM;
+                break;
+
+            case R.id.toggle_navigation:
+                bar.setNavigationMode(
+                        bar.getNavigationMode() == ActionBar.NAVIGATION_MODE_STANDARD
+                                ? ActionBar.NAVIGATION_MODE_TABS
+                                : ActionBar.NAVIGATION_MODE_STANDARD);
+                return;
+            case R.id.cycle_custom_gravity:
+                ActionBar.LayoutParams lp = (ActionBar.LayoutParams) mCustomView.getLayoutParams();
+                int newGravity = 0;
+                switch (lp.gravity & Gravity.HORIZONTAL_GRAVITY_MASK) {
+                    case Gravity.LEFT:
+                        newGravity = Gravity.CENTER_HORIZONTAL;
+                        break;
+                    case Gravity.CENTER_HORIZONTAL:
+                        newGravity = Gravity.RIGHT;
+                        break;
+                    case Gravity.RIGHT:
+                        newGravity = Gravity.LEFT;
+                        break;
+                }
+                lp.gravity = lp.gravity & ~Gravity.HORIZONTAL_GRAVITY_MASK | newGravity;
+                bar.setCustomView(mCustomView, lp);
+                return;
+        }
+
+        int change = bar.getDisplayOptions() ^ flags;
+        bar.setDisplayOptions(change, flags);
+    }
+    public void onTabSelected(Tab tab, FragmentTransaction ft) {
+    }
+
+    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+    }
+
+    public void onTabReselected(Tab tab, FragmentTransaction ft) {
+    }
+
+    
 }

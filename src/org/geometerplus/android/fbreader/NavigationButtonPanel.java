@@ -105,6 +105,17 @@ final class NavigationButtonPanel extends ControlButtonPanel {
 
 		final Button btnOk = (Button)layout.findViewById(android.R.id.button1);
 		final Button btnCancel = (Button)layout.findViewById(android.R.id.button3);
+//sean_0519
+/*
+		final Button btnMenu1 = (Button)layout.findViewById(R.id.menu1);
+		final Button btnMenu2 = (Button)layout.findViewById(R.id.menu2);
+		final Button btnMenu3 = (Button)layout.findViewById(R.id.menu3);
+		final Button btnMenu4 = (Button)layout.findViewById(R.id.menu4);    
+		btnMenu1.setOnClickListener(listener);
+		btnMenu2.setOnClickListener(listener);
+		btnMenu3.setOnClickListener(listener);
+		btnMenu4.setOnClickListener(listener);
+ */       
 		View.OnClickListener listener = new View.OnClickListener() {
 			public void onClick(View v) {
 				final ZLTextWordCursor position = StartPosition;
@@ -119,9 +130,27 @@ final class NavigationButtonPanel extends ControlButtonPanel {
 		};
 		btnOk.setOnClickListener(listener);
 		btnCancel.setOnClickListener(listener);
+//sean_0519
+/*
+		btnMenu1.setOnClickListener(listener);
+		btnMenu2.setOnClickListener(listener);
+		btnMenu3.setOnClickListener(listener);
+		btnMenu4.setOnClickListener(listener);
+*/
+        
 		final ZLResource buttonResource = ZLResource.resource("dialog").getResource("button");
 		btnOk.setText(buttonResource.getResource("ok").getValue());
 		btnCancel.setText(buttonResource.getResource("cancel").getValue());
+//sean_0519    
+/*
+		btnMenu1.setText("Day/Night");
+		btnMenu2.setText("Font Increase");
+		btnMenu3.setText("Font Decrease");
+		btnMenu4.setText("Settings");
+*/
+
+
+
 
 		myControlPanel.addView(layout);
 	}

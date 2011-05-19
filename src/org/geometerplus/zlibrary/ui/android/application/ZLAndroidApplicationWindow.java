@@ -44,6 +44,13 @@ public final class ZLAndroidApplicationWindow extends ZLApplicationWindow {
 				return true;
 			}
 		};
+//sean_0517
+         final int SHOW_AS_ACTION_ALWAYS=2;
+         final int SHOW_AS_ACTION_IF_ROOM=1;
+         final int SHOW_AS_ACTION_NEVER=0;
+         final int SHOW_AS_ACTION_WITH_TEXT=4;
+
+
 
 	public ZLAndroidApplicationWindow(ZLApplication application) {
 		super(application);
@@ -54,7 +61,14 @@ public final class ZLAndroidApplicationWindow extends ZLApplicationWindow {
 		final MenuItem menuItem = menu.add(resource.getResource(actionId).getValue());
 		if (iconId != null) {
 			menuItem.setIcon(iconId);
+  
+                     menuItem.setShowAsAction(SHOW_AS_ACTION_ALWAYS); //always
+    
 		}
+           //sean_0517
+            
+              
+        
 		menuItem.setOnMenuItemClickListener(myMenuListener);
 		myMenuItemMap.put(menuItem, actionId);
 	}
