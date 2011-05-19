@@ -48,7 +48,7 @@ import android.util.Log;
 import android.os.Handler;
 import android.os.HandlerThread;
 import java.util.ArrayList;
-
+import android.view.Window;
 
 
 /**
@@ -78,7 +78,7 @@ public class ebookmain extends Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-                
+          requestWindowFeature(Window.FEATURE_ACTION_BAR);       
  //       setContentView(R.layout.action_bar_display_options);
         setContentView(R.layout.ebookmain);
  
