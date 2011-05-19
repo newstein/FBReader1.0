@@ -55,7 +55,7 @@ import android.view.Window;
  * This demo shows how various action bar display option flags can be combined and their effects.
  */
 public class ebookmain extends Activity
-        implements View.OnClickListener/*, ActionBar.TabListener*/ {
+        implements View.OnClickListener, ActionBar.TabListener {
     private View mCustomView;
     private static final String TAG = "ebookmain";
 
@@ -127,9 +127,9 @@ public class ebookmain extends Activity
         //show  button
         setAllButtonInVisible();
         //hide home title 
-        //setHomeVisible();
+        setHomeVisible();
 
- /*
+
         mCustomView = getLayoutInflater().inflate(R.layout.action_bar_display_options_custom, null);
         // Configure several action bar elements that will be toggled by display options.
         final ActionBar bar = getActionBar();
@@ -139,7 +139,7 @@ public class ebookmain extends Activity
         bar.addTab(bar.newTab().setText("Tab 1").setTabListener(this));
         bar.addTab(bar.newTab().setText("Tab 2").setTabListener(this));
         bar.addTab(bar.newTab().setText("Tab 3").setTabListener(this));
- */       
+      
         
         
     }
