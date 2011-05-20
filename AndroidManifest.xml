@@ -11,6 +11,7 @@
 		             android:launchMode="singleTask" 
 		             android:icon="@drawable/fbreader" 
 		             android:label="Seabook" 
+		             android:icon="@drawable/ic_launcher_browser" 
 		             android:theme="@style/BrowserTheme"
 		             android:configChanges="orientation|keyboardHidden">
 			<intent-filter>
