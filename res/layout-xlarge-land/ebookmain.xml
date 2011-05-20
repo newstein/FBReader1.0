@@ -16,6 +16,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+               android:background="@drawable/bg_browser"             
               android:orientation="vertical">
              
     <Button android:id="@+id/toggle_home_as_up"

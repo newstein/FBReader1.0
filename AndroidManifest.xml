@@ -7,7 +7,12 @@
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<application android:name="org.geometerplus.zlibrary.ui.android.library.ZLAndroidApplication" android:icon="@drawable/fbreader" android:label="FBReader">
 		<activity android:name=".library.BugReportActivity" android:label="FBReader crash" android:configChanges="orientation|keyboardHidden" />	
-		<activity android:name="org.geometerplus.android.fbreader.ebookmain" android:launchMode="singleTask" android:icon="@drawable/fbreader" android:label="Seabook" android:configChanges="orientation|keyboardHidden">
+		<activity android:name="org.geometerplus.android.fbreader.ebookmain" 
+		             android:launchMode="singleTask" 
+		             android:icon="@drawable/fbreader" 
+		             android:label="Seabook" 
+		             android:theme="@style/BrowserTheme"
+		             android:configChanges="orientation|keyboardHidden">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
