@@ -164,7 +164,7 @@ public class ebookmain extends Activity
                 onClickSettingButton();
                 break;
  
-            default:
+            default:                
                 return super.onOptionsItemSelected(item);
         }
         return true;
@@ -420,18 +420,30 @@ public class ebookmain extends Activity
         private Context mContext;
 
         private FileInputStream fis;
-           
-        private Integer[] mImageIds = {
-                R.drawable.kasabian_kasabian,
-                R.drawable.starssailor_silence_is_easy,
-                R.drawable.killers_day_and_age,
-                R.drawable.garbage_bleed_like_me,
-                R.drawable.death_cub_for_cutie_the_photo_album,
-                R.drawable.kasabian_kasabian,
-                R.drawable.massive_attack_collected,
-                R.drawable.muse_the_resistance,
-                R.drawable.starssailor_silence_is_easy
-        };
+
+      private Integer[] mImageIds = {
+      R.drawable.wallpaper_jellyfish,
+      R.drawable.wallpaper_lake,
+      R.drawable.wallpaper_mountain,
+      R.drawable.wallpaper_path,
+      R.drawable.wallpaper_road,
+      R.drawable.wallpaper_snow_leopard,
+      R.drawable.wallpaper_sunrise,
+      R.drawable.wallpaper_zanzibar,
+      R.drawable.death_cub_for_cutie_the_photo_album
+};
+
+//        private Integer[] mImageIds = {
+//                R.drawable.kasabian_kasabian,
+//                R.drawable.starssailor_silence_is_easy,
+//                R.drawable.killers_day_and_age,
+//                R.drawable.garbage_bleed_like_me,
+//                R.drawable.death_cub_for_cutie_the_photo_album,
+//                R.drawable.kasabian_kasabian,
+//                R.drawable.massive_attack_collected,
+//                R.drawable.muse_the_resistance,
+//                R.drawable.starssailor_silence_is_easy
+//        };
 
         private ImageView[] mImages;
         
