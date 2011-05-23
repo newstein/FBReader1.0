@@ -28,7 +28,7 @@ import android.widget.Button;
 
 import org.geometerplus.zlibrary.core.resources.ZLResource;
 
-import org.geometerplus.zlibrary.ui.android.R;
+import com.sean.android.ebookmain.R;
 
 public class AuthenticationActivity extends Activity {
 	final static String AREA_KEY = "area";

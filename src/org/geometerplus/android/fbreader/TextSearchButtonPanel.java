@@ -26,7 +26,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.ZoomButton;
 
-import org.geometerplus.zlibrary.ui.android.R;
+import com.sean.android.ebookmain.R;
 
 import org.geometerplus.fbreader.fbreader.ActionCode;
 import org.geometerplus.fbreader.fbreader.FBReaderApp;

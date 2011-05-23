@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.geometerplus.zlibrary.ui.android" android:versionCode="10014" android:versionName="1.0.12" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.sean.android.ebookmain" android:versionCode="100" android:versionName="1.0" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="9" />
 	<supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:anyDensity="true" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<application android:name="org.geometerplus.zlibrary.ui.android.library.ZLAndroidApplication" android:icon="@drawable/fbreader" android:label="FBReader">
+	<application android:name="org.geometerplus.zlibrary.ui.android.library.ZLAndroidApplication" android:icon="@drawable/fbreader" android:label="SeaBook">
 		<activity android:name=".library.BugReportActivity" android:label="FBReader crash" android:configChanges="orientation|keyboardHidden" />	
 		<activity android:name="org.geometerplus.android.fbreader.ebookmain" 
 		             android:launchMode="singleTask" 
 		             android:icon="@drawable/fbreader" 
-		             android:label="Seabook" 
-		             android:icon="@drawable/ic_launcher_browser" 
+		             android:label="SeaBook" 
 		             android:theme="@style/BrowserTheme"
 		             android:configChanges="orientation|keyboardHidden">
 			<intent-filter>

@@ -33,6 +33,8 @@ import org.geometerplus.zlibrary.ui.android.view.AndroidFontUtil;
 import org.geometerplus.fbreader.fbreader.*;
 import org.geometerplus.fbreader.Paths;
 import org.geometerplus.fbreader.bookmodel.FBTextKind;
+import com.sean.android.ebookmain.*;
+
 
 public class PreferenceActivity extends ZLPreferenceActivity {
 	public PreferenceActivity() {

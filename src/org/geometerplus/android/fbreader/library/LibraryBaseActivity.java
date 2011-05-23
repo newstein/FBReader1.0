@@ -32,7 +32,7 @@ import org.geometerplus.zlibrary.core.options.ZLStringOption;
 import org.geometerplus.fbreader.tree.FBTree;
 import org.geometerplus.fbreader.library.*;
 
-import org.geometerplus.zlibrary.ui.android.R;
+import com.sean.android.ebookmain.R;
 
 import org.geometerplus.android.util.UIUtil;
 import org.geometerplus.android.fbreader.tree.ZLAndroidTree;
@@ -73,7 +73,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
-import org.geometerplus.android.fbreader.CoverFlow;
+//import com.sean.android.ebookmain.CoverFlow;
 
 
 

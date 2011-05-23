@@ -26,7 +26,7 @@ import android.view.*;
 import android.view.animation.AlphaAnimation;
 import android.widget.*;
 
-import org.geometerplus.zlibrary.ui.android.R;
+import com.sean.android.ebookmain.R;
 
 public class ControlPanel extends LinearLayout {
 	public ControlPanel(Context context, RelativeLayout root, boolean fillWidth) {

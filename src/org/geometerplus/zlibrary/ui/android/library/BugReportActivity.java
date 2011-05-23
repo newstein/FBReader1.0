@@ -26,7 +26,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.text.method.ScrollingMovementMethod;
 
-import org.geometerplus.zlibrary.ui.android.R;
+import com.sean.android.ebookmain.R;
 
 public class BugReportActivity extends Activity {
 	static final String STACKTRACE = "fbreader.stacktrace";

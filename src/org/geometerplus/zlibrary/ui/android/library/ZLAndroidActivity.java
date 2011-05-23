@@ -32,7 +32,7 @@ import android.os.PowerManager;
 import org.geometerplus.zlibrary.core.application.ZLApplication;
 import org.geometerplus.zlibrary.core.filesystem.ZLFile;
 
-import org.geometerplus.zlibrary.ui.android.R;
+import com.sean.android.ebookmain.R;
 import org.geometerplus.zlibrary.ui.android.application.ZLAndroidApplicationWindow;
 import android.util.Log;
 //sean_0517
@@ -62,7 +62,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
-import org.geometerplus.android.fbreader.CoverFlow;
+//import com.sean.android.ebookmain.CoverFlow;
 //sean_0517
 public abstract class ZLAndroidActivity extends Activity  implements View.OnClickListener, ActionBar.TabListener {
        private static final String TAG = "ZLAndroidActivity";

@@ -50,7 +50,10 @@ import android.content.Intent;
 import org.geometerplus.fbreader.fbreader.FBAction;
 import org.geometerplus.fbreader.fbreader.FBReaderApp;
 import org.geometerplus.fbreader.bookmodel.BookModel;
+import org.geometerplus.android.fbreader.FBReader;
+
 import org.geometerplus.android.fbreader.library.LibraryTopLevelActivity;
+
 import android.app.Activity;
 import android.content.Context;
 

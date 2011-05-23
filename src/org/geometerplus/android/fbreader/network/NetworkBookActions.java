@@ -36,7 +36,7 @@ import android.view.ContextMenu;
 import org.geometerplus.zlibrary.core.resources.ZLResource;
 import org.geometerplus.zlibrary.core.network.ZLNetworkException;
 
-import org.geometerplus.zlibrary.ui.android.R;
+import com.sean.android.ebookmain.R;
 
 import org.geometerplus.android.util.UIUtil;
 import org.geometerplus.android.fbreader.FBReader;

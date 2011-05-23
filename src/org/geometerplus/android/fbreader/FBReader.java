@@ -33,7 +33,7 @@ import org.geometerplus.zlibrary.core.filesystem.ZLFile;
 
 import org.geometerplus.zlibrary.text.hyphenation.ZLTextHyphenator;
 
-import org.geometerplus.zlibrary.ui.android.R;
+import com.sean.android.ebookmain.R;
 import org.geometerplus.zlibrary.ui.android.library.ZLAndroidActivity;
 import org.geometerplus.zlibrary.ui.android.library.ZLAndroidApplication;
 
@@ -74,6 +74,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.view.Window;
+//import com.sean.android.ebookmain.CoverFlow;
 
 //sean_0517
 public final class FBReader extends ZLAndroidActivity implements View.OnClickListener, ActionBar.TabListener     {

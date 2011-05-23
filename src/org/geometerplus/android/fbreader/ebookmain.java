@@ -37,13 +37,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
+
+import com.sean.android.ebookmain.R;
+
+import org.geometerplus.android.fbreader.FBReader;
 import org.geometerplus.android.fbreader.library.LibraryRecentActivity;
 import org.geometerplus.android.fbreader.library.LibraryTopLevelActivity;
 import org.geometerplus.android.fbreader.network.NetworkLibraryActivity;
 import org.geometerplus.android.fbreader.preferences.PreferenceActivity;
-import org.geometerplus.android.fbreader.FBReader;
 
-import org.geometerplus.zlibrary.ui.android.R;
 import android.util.Log;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -276,8 +278,8 @@ public class ebookmain extends Activity
         
     }           
      private void onClickSettingButton() {
-  //       Intent intent = new Intent(this, PreferenceActivity.class);
-        Intent intent = new Intent(this, LibraryRecentActivity.class);
+         Intent intent = new Intent(this, PreferenceActivity.class);
+  //      Intent intent = new Intent(this, LibraryRecentActivity.class);
          this.startActivity(intent);
         
     }  
