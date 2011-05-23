@@ -80,7 +80,8 @@ public class ebookmain extends Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-          requestWindowFeature(Window.FEATURE_ACTION_BAR);       
+          requestWindowFeature(Window.FEATURE_ACTION_BAR); 
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
  //       setContentView(R.layout.action_bar_display_options);
         setContentView(R.layout.ebookmain);
  
@@ -96,18 +97,18 @@ public class ebookmain extends Activity
         coverFlow.setAdapter(coverImageAdapter);
         
         coverFlow.setSpacing(-15);
-        coverFlow.setSelection(5, true);
+        coverFlow.setSelection(3, true);
         
         mContext=this;
 
 
-        findViewById(R.id.toggle_home_as_up).setOnClickListener(this);
-        findViewById(R.id.toggle_show_home).setOnClickListener(this);
-        findViewById(R.id.toggle_use_logo).setOnClickListener(this);
-        findViewById(R.id.toggle_show_title).setOnClickListener(this);
-        findViewById(R.id.toggle_show_custom).setOnClickListener(this);
-        findViewById(R.id.toggle_navigation).setOnClickListener(this);
-        findViewById(R.id.cycle_custom_gravity).setOnClickListener(this);
+//        findViewById(R.id.toggle_home_as_up).setOnClickListener(this);
+//        findViewById(R.id.toggle_show_home).setOnClickListener(this);
+//        findViewById(R.id.toggle_use_logo).setOnClickListener(this);
+//        findViewById(R.id.toggle_show_title).setOnClickListener(this);
+//        findViewById(R.id.toggle_show_custom).setOnClickListener(this);
+//        findViewById(R.id.toggle_navigation).setOnClickListener(this);
+//        findViewById(R.id.cycle_custom_gravity).setOnClickListener(this);
 
         //hide button
         setAllButtonInVisible();
@@ -115,15 +116,15 @@ public class ebookmain extends Activity
         //setHomeVisible();
 
          //initial FBReader 
-        setFBReaderInVisible();
+ 
 
 
- /*
+
         findViewById(R.id.local_library).setOnClickListener(this);
         findViewById(R.id.network_library).setOnClickListener(this);
         findViewById(R.id.bookmark).setOnClickListener(this);
         findViewById(R.id.settings).setOnClickListener(this);
-*/
+
         //initial button
         initializeButton();
         //show  button
@@ -278,33 +279,17 @@ public class ebookmain extends Activity
         
     }           
      private void onClickSettingButton() {
-         Intent intent = new Intent(this, PreferenceActivity.class);
-  //      Intent intent = new Intent(this, LibraryRecentActivity.class);
+//         Intent intent = new Intent(this, PreferenceActivity.class);
+        Intent intent = new Intent(this, LibraryRecentActivity.class);
          this.startActivity(intent);
         
     }  
 
-    private void setFBReaderInVisible() {
- /*     
-        mFBReader=(FBReader)findViewById(R.id.fbreadermain);
 
-        
-        ((FBReader) mFBReader).setVisibility(View.INVISIBLE);      
-*/
-
-    }    
-    private void setFBReaderVisible() {
- /*      
-       mFBReader=(FBReader)findViewById(R.id.fbreadermain);
-
-        ((FBReader) mFBReader).setVisibility(View.VISIBLE);         
-   */
-
-    }        
      
     private void setAllButtonInVisible() {
       
-        Button Button_A=(Button)findViewById(R.id.toggle_home_as_up);
+/*        Button Button_A=(Button)findViewById(R.id.toggle_home_as_up);
         Button Button_B=(Button)findViewById(R.id.toggle_show_home);
         Button Button_C=(Button)findViewById(R.id.toggle_use_logo);
         Button Button_D=(Button)findViewById(R.id.toggle_show_title);
@@ -319,9 +304,9 @@ public class ebookmain extends Activity
         ((Button) Button_D).setVisibility(View.INVISIBLE);
         ((Button) Button_E).setVisibility(View.INVISIBLE);        
         ((Button) Button_F).setVisibility(View.INVISIBLE);    
-        ((Button) Button_G).setVisibility(View.INVISIBLE);      
+        ((Button) Button_G).setVisibility(View.INVISIBLE); */     
 
-/*        
+       
         mlocal=(Button)findViewById(R.id.local_library);
         mnetwork=(Button)findViewById(R.id.network_library);
         mbookmark=(Button)findViewById(R.id.bookmark);
@@ -331,11 +316,11 @@ public class ebookmain extends Activity
         ((Button) mnetwork).setVisibility(View.INVISIBLE);  
         ((Button) mbookmark).setVisibility(View.INVISIBLE);
         ((Button) msetting).setVisibility(View.INVISIBLE);
-*/
+
     }    
     private void setAllButtonVisible() {
        
-        Button Button_A=(Button)findViewById(R.id.toggle_home_as_up);
+ /*       Button Button_A=(Button)findViewById(R.id.toggle_home_as_up);
         Button Button_B=(Button)findViewById(R.id.toggle_show_home);
         Button Button_C=(Button)findViewById(R.id.toggle_use_logo);
         Button Button_D=(Button)findViewById(R.id.toggle_show_title);
@@ -350,9 +335,9 @@ public class ebookmain extends Activity
         ((Button) Button_D).setVisibility(View.VISIBLE);
         ((Button) Button_E).setVisibility(View.VISIBLE);        
         ((Button) Button_F).setVisibility(View.VISIBLE);    
-        ((Button) Button_G).setVisibility(View.VISIBLE);         
+        ((Button) Button_G).setVisibility(View.VISIBLE);    */     
    
- /*
+ 
         mlocal=(Button)findViewById(R.id.local_library);
         mnetwork=(Button)findViewById(R.id.network_library);
         mbookmark=(Button)findViewById(R.id.bookmark);
@@ -361,12 +346,12 @@ public class ebookmain extends Activity
         ((Button) mnetwork).setVisibility(View.VISIBLE);  
         ((Button) mbookmark).setVisibility(View.VISIBLE);
         ((Button) msetting).setVisibility(View.VISIBLE);
- */       
+      
     }        
 
     private void setHomeVisible() {
-        final ActionBar barHome = getActionBar();
-        int flags = 0;
+//        final ActionBar barHome = getActionBar();
+//        int flags = 0;
        
  /*       
         switch (v.getId()) {
@@ -411,9 +396,9 @@ public class ebookmain extends Activity
                 return;
         }
 */
-        flags = ActionBar.DISPLAY_SHOW_TITLE;  
-        int change = barHome.getDisplayOptions() ^ flags;
-        barHome.setDisplayOptions(change, flags);
+//        flags = ActionBar.DISPLAY_SHOW_TITLE;  
+//        int change = barHome.getDisplayOptions() ^ flags;
+//        barHome.setDisplayOptions(change, flags);
         
     }   
     
@@ -421,18 +406,15 @@ public class ebookmain extends Activity
         int mGalleryItemBackground;
         private Context mContext;
 
-        private FileInputStream fis;
-
-      private Integer[] mImageIds = {
+     private Integer[] mImageIds = {
       R.drawable.wallpaper_jellyfish,
       R.drawable.wallpaper_lake,
       R.drawable.wallpaper_mountain,
       R.drawable.wallpaper_path,
       R.drawable.wallpaper_road,
       R.drawable.wallpaper_snow_leopard,
-      R.drawable.wallpaper_sunrise,
-      R.drawable.wallpaper_zanzibar,
-      R.drawable.death_cub_for_cutie_the_photo_album
+      R.drawable.wallpaper_sunrise
+ 
 };
 
 //        private Integer[] mImageIds = {

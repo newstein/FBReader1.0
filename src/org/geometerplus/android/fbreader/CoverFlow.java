@@ -53,6 +53,13 @@ import org.geometerplus.fbreader.bookmodel.BookModel;
 import org.geometerplus.android.fbreader.FBReader;
 
 import org.geometerplus.android.fbreader.library.LibraryTopLevelActivity;
+import org.geometerplus.android.fbreader.library.LibraryFavoritesActivity;
+import org.geometerplus.android.fbreader.library.LibrarybyauthorActivity;
+import org.geometerplus.android.fbreader.library.LibrarybytitleActivity;
+import org.geometerplus.android.fbreader.library.LibraryRecentActivity;
+import org.geometerplus.android.fbreader.library.LibrarybytagActivity;
+import org.geometerplus.android.fbreader.library.LibraryfiletreeActivity;
+import org.geometerplus.android.fbreader.network.NetworkLibraryActivity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -1121,15 +1128,65 @@ public class CoverFlow extends CoverAbsSpinner implements GestureDetector.OnGest
         if (mDownTouchPosition < 0) {
             return;
         }
+        
+ 
 //sean_0519
-		Intent intent = new Intent(mContext, FBReader.class);
-		mContext.startActivity(intent);
+/*		Intent intent = new Intent(mContext, FBReader.class);
+		mContext.startActivity(intent);*/
         
 
 //sean_0519
         //performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
         long id = getItemIdAtPosition(mDownTouchPosition);
         Log.v(TAG, "SEAN_LOG  onLongPress id "+id );
+        switch ((int)id) {
+            case 0:
+                Log.v(TAG, "SEAN_LOG  LibraryFavoritess id "+id );  
+                Intent intent0 = new Intent(mContext, LibraryFavoritesActivity.class);
+                mContext.startActivity(intent0);                
+                break;
+            case 1:
+                Log.v(TAG, "SEAN_LOG  LibrarybyauthorActivity id "+id );  
+                Intent intent1 = new Intent(mContext, LibrarybyauthorActivity.class);
+                mContext.startActivity(intent1); 
+                break;
+            case 2:
+                Log.v(TAG, "SEAN_LOG  LibrarybytitleActivity id "+id );  
+                Intent intent2 = new Intent(mContext, LibrarybytitleActivity.class);
+                mContext.startActivity(intent2); 
+                break;
+            case 3:
+                Log.v(TAG, "SEAN_LOG  LibraryRecentActivity id "+id );  
+                Intent intent3 = new Intent(mContext, FBReader.class);
+                mContext.startActivity(intent3); 
+                break;
+            case 4:
+                Log.v(TAG, "SEAN_LOG  LibraryRecentActivity id "+id );  
+                Intent intent4 = new Intent(mContext, LibraryRecentActivity.class);
+                mContext.startActivity(intent4); 
+                break;
+            case 5:
+                Log.v(TAG, "SEAN_LOG  LibrarybytagActivity id "+id );  
+                Intent intent5 = new Intent(mContext, LibrarybytagActivity.class);
+                mContext.startActivity(intent5); 
+                break;
+            case 6:
+                Log.v(TAG, "SEAN_LOG  LibraryfiletreeActivity id "+id );  
+                Intent intent6 = new Intent(mContext, LibraryfiletreeActivity.class);
+                mContext.startActivity(intent6); 
+                break;
+            case 7:
+                Log.v(TAG, "SEAN_LOG  LibraryFavoritess id "+id );  
+                Intent intent7 = new Intent(mContext, NetworkLibraryActivity.class);
+                mContext.startActivity(intent7); 
+                break;               
+            default:
+                Log.v(TAG, "SEAN_LOG  default id "+id );          
+                break;
+        }       
+        
+        
+        
         dispatchLongPress(mDownTouchView, mDownTouchPosition, id);
     }
 

@@ -83,7 +83,54 @@
 				<action android:name="fbreader.library.intent.FOUND" />
 			</intent-filter>
 			<meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
-		</activity>		
+		</activity>	
+		<activity android:name="org.geometerplus.android.fbreader.library.LibraryFavoritesActivity" android:launchMode="singleTask" android:process=":library" android:configChanges="orientation|keyboardHidden">
+			<intent-filter>
+				<action android:name="android.intent.action.SEARCH" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="fbreader.library.intent.FOUND" />
+			</intent-filter>
+			<meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
+		</activity>				
+		<activity android:name="org.geometerplus.android.fbreader.library.LibrarybyauthorActivity" android:launchMode="singleTask" android:process=":library" android:configChanges="orientation|keyboardHidden">
+			<intent-filter>
+				<action android:name="android.intent.action.SEARCH" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="fbreader.library.intent.FOUND" />
+			</intent-filter>
+			<meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
+		</activity>				
+		<activity android:name="org.geometerplus.android.fbreader.library.LibrarybytitleActivity" android:launchMode="singleTask" android:process=":library" android:configChanges="orientation|keyboardHidden">
+			<intent-filter>
+				<action android:name="android.intent.action.SEARCH" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="fbreader.library.intent.FOUND" />
+			</intent-filter>
+			<meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
+		</activity>			
+		<activity android:name="org.geometerplus.android.fbreader.library.LibrarybytagActivity" android:launchMode="singleTask" android:process=":library" android:configChanges="orientation|keyboardHidden">
+			<intent-filter>
+				<action android:name="android.intent.action.SEARCH" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="fbreader.library.intent.FOUND" />
+			</intent-filter>
+			<meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
+		</activity>			
+		<activity android:name="org.geometerplus.android.fbreader.library.LibraryfiletreeActivity" android:launchMode="singleTask" android:process=":library" android:configChanges="orientation|keyboardHidden">
+			<intent-filter>
+				<action android:name="android.intent.action.SEARCH" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="fbreader.library.intent.FOUND" />
+			</intent-filter>
+			<meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
+		</activity>			
+
+			
 		<activity android:name="org.geometerplus.android.fbreader.library.LibraryTreeActivity" android:process=":library" android:configChanges="orientation|keyboardHidden">
 			<intent-filter>
 				<action android:name="android.intent.action.SEARCH" />
