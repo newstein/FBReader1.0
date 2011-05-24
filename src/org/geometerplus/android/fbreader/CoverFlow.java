@@ -50,6 +50,7 @@ import android.content.Intent;
 import org.geometerplus.fbreader.fbreader.FBAction;
 import org.geometerplus.fbreader.fbreader.FBReaderApp;
 import org.geometerplus.fbreader.bookmodel.BookModel;
+import org.geometerplus.android.fbreader.CoverAdapterView.OnItemClickListener;
 import org.geometerplus.android.fbreader.FBReader;
 
 import org.geometerplus.android.fbreader.library.LibraryTopLevelActivity;
@@ -82,8 +83,8 @@ import android.content.Context;
  * @attr ref android.R.styleable#Gallery_gravity
  */
 
-public class CoverFlow extends CoverAbsSpinner implements GestureDetector.OnGestureListener {
 
+public class CoverFlow extends CoverAbsSpinner implements GestureDetector.OnGestureListener   {
     private static final String TAG = "CoverFlow";
 
     private static final boolean localLOGV = false;
@@ -1192,6 +1193,8 @@ public class CoverFlow extends CoverAbsSpinner implements GestureDetector.OnGest
 
     // Unused methods from GestureDetector.OnGestureListener below
     
+ 
+
     /**
      * {@inheritDoc}
      */
@@ -1602,4 +1605,6 @@ public class CoverFlow extends CoverAbsSpinner implements GestureDetector.OnGest
             super(source);
         }
     }
+
+
 }

@@ -39,12 +39,12 @@
         android:id="@+id/show_search"
         android:icon="@drawable/ic_menu_search"
         android:showAsAction="always" /> 
- -->        
+       
       <item
         android:id="@+id/show_preference"
         android:icon="@drawable/ic_popup_settings"
         android:showAsAction="always" />  
- <!--          
+        
        <item
         android:id="@+id/show_zoomin"
         android:title="@string/showzoomin"

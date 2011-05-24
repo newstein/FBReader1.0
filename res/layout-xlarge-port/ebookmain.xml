@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:text="@string/cycle_custom_gravity" />
 --> 
-          
+ <!--          
     <Button android:id="@+id/local_library"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,14 +67,23 @@
             android:layout_height="wrap_content"
             android:text="@string/settings" />
 
- <!--
+
 	<org.geometerplus.android.fbreader.CoverFlow android:id="@+id/coverflow"
 			android:layout_width="match_parent" android:layout_height="match_parent"
 			android:paddingLeft="400dp"
 			android:paddingRight="400dp" 
 			android:text="@string/toggle_home_as_up" />  
- --> 
- 
+ -->
+	<TextView android:id="@+id/TextView01" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignParentTop="true"
+		android:layout_centerInParent="true" 
+		android:gravity="center_horizontal|center_vertical" android:textColor="#CCFFFFFF"
+		android:textSize="30sp" android:shadowColor="#DA000000"
+		android:shadowDx="0.0" android:shadowDy="0.0" android:shadowRadius="2.5" />
+	<ImageView android:id="@+id/ImageView01"
+		android:layout_width="600dp" android:layout_height="600dp"
+		android:layout_centerInParent="true">
+	</ImageView> 
 	<org.geometerplus.android.fbreader.CoverFlow android:id="@+id/coverflow"
 			android:layout_width="400dp" 
 			android:layout_height="wrap_content"

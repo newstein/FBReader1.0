@@ -36,6 +36,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.sean.android.ebookmain.R;
@@ -52,6 +54,8 @@ import android.os.HandlerThread;
 import java.util.ArrayList;
 import android.view.Window;
 
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 
 /**
  * This demo shows how various action bar display option flags can be combined and their effects.
@@ -69,6 +73,19 @@ public class ebookmain extends Activity
     private FBReader mFBReader;
 
     private Context mContext;
+     ImageView imageView;
+     TextView  textview;
+    private Integer[] mImageIds = {
+             R.drawable.wallpaper_jellyfish,
+             R.drawable.wallpaper_lake,
+             R.drawable.wallpaper_mountain,
+             R.drawable.wallpaper_path,
+             R.drawable.wallpaper_road,
+             R.drawable.wallpaper_snow_leopard,
+             R.drawable.wallpaper_sunrise,
+             R.drawable.wallpaper_sunset            
+       };
+
 
     private static final HandlerThread sWorkerThread = new HandlerThread("ebook-main");
     static {
@@ -95,6 +112,53 @@ public class ebookmain extends Activity
         coverImageAdapter.createReflectedImages();
         
         coverFlow.setAdapter(coverImageAdapter);
+
+        textview = (TextView)findViewById(R.id.TextView01);
+        imageView = (ImageView)findViewById(R.id.ImageView01);
+        
+        coverFlow.setOnItemClickListener(new CoverAdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(CoverAdapterView<?> arg0, View arg1, int arg2,
+                    long arg3) {
+/*                Toast.makeText(getBaseContext(), 
+                        "You have selected picture " + (arg2+1) + " of Antartica", 
+                        Toast.LENGTH_SHORT).show();*/
+                switch (arg2+1) {
+                    case 1:
+                        textview.setText("Favorites List");
+                        break;
+                    case 2:
+                        textview.setText("By Author List");
+                        break;
+                    case 3:
+                        textview.setText("By Title List");  
+                        break;
+                    case 4:
+                        textview.setText("Sea Reader Main");  
+                        break; 
+                    case 5:
+                        textview.setText("Recent List");  
+                        break; 
+                    case 6:
+                        textview.setText("By Tag List");  
+                        break;   
+                    case 7:
+                        textview.setText("File Tree");  
+                        break;  
+                    case 8:
+                        textview.setText("Network Library");  
+                        break;                          
+                    default:                
+                        break;
+                }               
+                
+                imageView.setImageResource(mImageIds[arg2]);
+                
+            }
+            
+        });
+        
         
         coverFlow.setSpacing(-15);
         coverFlow.setSelection(3, true);
@@ -111,7 +175,7 @@ public class ebookmain extends Activity
 //        findViewById(R.id.cycle_custom_gravity).setOnClickListener(this);
 
         //hide button
-        setAllButtonInVisible();
+        //setAllButtonInVisible();
         //hide home title 
         //setHomeVisible();
 
@@ -120,17 +184,17 @@ public class ebookmain extends Activity
 
 
 
-        findViewById(R.id.local_library).setOnClickListener(this);
+/*        findViewById(R.id.local_library).setOnClickListener(this);
         findViewById(R.id.network_library).setOnClickListener(this);
         findViewById(R.id.bookmark).setOnClickListener(this);
         findViewById(R.id.settings).setOnClickListener(this);
-
+*/
         //initial button
-        initializeButton();
+        //initializeButton();
         //show  button
-        setAllButtonInVisible();
+       // setAllButtonInVisible();
         //hide home title 
-        setHomeVisible();
+        //setHomeVisible();
 
 
         mCustomView = getLayoutInflater().inflate(R.layout.action_bar_display_options_custom, null);
@@ -148,7 +212,15 @@ public class ebookmain extends Activity
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        Log.v(TAG, "SEAN_LOG  onPrepareOptionsMenu " );  
+        // TODO Auto-generated method stub
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        Log.v(TAG, "SEAN_LOG  onCreateOptionsMenu " );  
         getMenuInflater().inflate(R.menu.display_options_actions, menu);
         return true;
     }
@@ -163,9 +235,9 @@ public class ebookmain extends Activity
             case R.id.network_library:
                 onClickNetworkLibraryButton(); 
                 break;
-            case R.id.show_preference:
+/*            case R.id.show_preference:
                 onClickSettingButton();
-                break;
+                break;*/
  
             default:                
                 return super.onOptionsItemSelected(item);
@@ -278,12 +350,12 @@ public class ebookmain extends Activity
         this.startActivity(intent);
         
     }           
-     private void onClickSettingButton() {
+/*     private void onClickSettingButton() {
 //         Intent intent = new Intent(this, PreferenceActivity.class);
         Intent intent = new Intent(this, LibraryRecentActivity.class);
          this.startActivity(intent);
         
-    }  
+    }  */
 
 
      
@@ -307,7 +379,7 @@ public class ebookmain extends Activity
         ((Button) Button_G).setVisibility(View.INVISIBLE); */     
 
        
-        mlocal=(Button)findViewById(R.id.local_library);
+/*        mlocal=(Button)findViewById(R.id.local_library);
         mnetwork=(Button)findViewById(R.id.network_library);
         mbookmark=(Button)findViewById(R.id.bookmark);
         msetting=(Button)findViewById(R.id.settings);
@@ -315,7 +387,7 @@ public class ebookmain extends Activity
         ((Button) mlocal).setVisibility(View.INVISIBLE);
         ((Button) mnetwork).setVisibility(View.INVISIBLE);  
         ((Button) mbookmark).setVisibility(View.INVISIBLE);
-        ((Button) msetting).setVisibility(View.INVISIBLE);
+        ((Button) msetting).setVisibility(View.INVISIBLE);*/
 
     }    
     private void setAllButtonVisible() {
@@ -338,14 +410,14 @@ public class ebookmain extends Activity
         ((Button) Button_G).setVisibility(View.VISIBLE);    */     
    
  
-        mlocal=(Button)findViewById(R.id.local_library);
+/*        mlocal=(Button)findViewById(R.id.local_library);
         mnetwork=(Button)findViewById(R.id.network_library);
         mbookmark=(Button)findViewById(R.id.bookmark);
         msetting=(Button)findViewById(R.id.settings);
         ((Button) mlocal).setVisibility(View.VISIBLE);
         ((Button) mnetwork).setVisibility(View.VISIBLE);  
         ((Button) mbookmark).setVisibility(View.VISIBLE);
-        ((Button) msetting).setVisibility(View.VISIBLE);
+        ((Button) msetting).setVisibility(View.VISIBLE);*/
       
     }        
 
@@ -406,7 +478,7 @@ public class ebookmain extends Activity
         int mGalleryItemBackground;
         private Context mContext;
 
-     private Integer[] mImageIds = {
+/*     private Integer[] mImageIds = {
       R.drawable.wallpaper_jellyfish,
       R.drawable.wallpaper_lake,
       R.drawable.wallpaper_mountain,
@@ -414,8 +486,7 @@ public class ebookmain extends Activity
       R.drawable.wallpaper_road,
       R.drawable.wallpaper_snow_leopard,
       R.drawable.wallpaper_sunrise
- 
-};
+};*/
 
 //        private Integer[] mImageIds = {
 //                R.drawable.kasabian_kasabian,
@@ -510,11 +581,11 @@ public class ebookmain extends Activity
         public View getView(int position, View convertView, ViewGroup parent) {
 
             //Use this code if you want to load from resources
-            //ImageView i = new ImageView(mContext);
-            //i.setImageResource(mImageIds[position]);
-            //i.setLayoutParams(new CoverFlow.LayoutParams(130, 130));
-            //i.setScaleType(ImageView.ScaleType.MATRIX);           
-            //return i;
+//            ImageView i = new ImageView(mContext);
+//            i.setImageResource(mImageIds[position]);
+//            i.setLayoutParams(new CoverFlow.LayoutParams(130, 130));
+//            i.setScaleType(ImageView.ScaleType.MATRIX);           
+//            return i;
             
             return mImages[position];
         }
