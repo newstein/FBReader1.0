@@ -75,7 +75,7 @@ public class ebookmain extends Activity
     private Context mContext;
      ImageView imageView;
      TextView  textview;
-    private Integer[] mImageIds = {
+/*    private Integer[] mImageIds = {
              R.drawable.wallpaper_jellyfish,
              R.drawable.wallpaper_lake,
              R.drawable.wallpaper_mountain,
@@ -84,9 +84,31 @@ public class ebookmain extends Activity
              R.drawable.wallpaper_snow_leopard,
              R.drawable.wallpaper_sunrise,
              R.drawable.wallpaper_sunset            
-       };
+       };*/
 
-
+    private Integer[] mImageIds = {
+            R.drawable.favorites,
+            R.drawable.author,
+            R.drawable.title,
+            R.drawable.readermain,
+            R.drawable.recent,
+            R.drawable.booktag,
+            R.drawable.filetree,
+            R.drawable.network
+    };
+    private Integer[] mImageIds_main = {
+            R.drawable.favorites_m,
+            R.drawable.author_m,
+            R.drawable.title_m,
+            R.drawable.readermain_m,
+            R.drawable.recent_m,
+            R.drawable.booktag_m,
+            R.drawable.filetree_m,
+            R.drawable.network_m
+    };
+    
+    
+    
     private static final HandlerThread sWorkerThread = new HandlerThread("ebook-main");
     static {
         sWorkerThread.start();
@@ -153,7 +175,7 @@ public class ebookmain extends Activity
                         break;
                 }               
                 
-                imageView.setImageResource(mImageIds[arg2]);
+                imageView.setImageResource(mImageIds_main[arg2]);
                 
             }
             

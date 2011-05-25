@@ -85,7 +85,7 @@
 		android:textSize="30sp" android:shadowColor="#DA000000"
 		android:shadowDx="0.0" android:shadowDy="0.0" android:shadowRadius="2.5" />
 	<ImageView android:id="@+id/ImageView01"
-		android:layout_width="600dp" android:layout_height="600dp"
+		android:layout_width="300dp" android:layout_height="300dp"
 		android:layout_centerInParent="true">
 	</ImageView> 
 
